@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Set Choices
         answerBtn1.setText(quiz.get(0));
-        answerBtn1.setText(quiz.get(1));
-        answerBtn1.setText(quiz.get(2));
-        answerBtn1.setText(quiz.get(3));
+        answerBtn2.setText(quiz.get(1));
+        answerBtn3.setText(quiz.get(2));
+        answerBtn4.setText(quiz.get(3));
 
         //Remove this quiz from quizArray
         quizArray.remove(randomNum);
