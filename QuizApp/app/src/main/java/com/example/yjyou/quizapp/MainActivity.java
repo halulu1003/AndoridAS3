@@ -1,7 +1,11 @@
 package com.example.yjyou.quizapp;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private String rightAnswer;
     private int rightAnswerCount=0;
     private int quizCount=1;
+    static final private int QUIZ_COUNT=5;
 
     ArrayList<ArrayList<String>> quizArray=new ArrayList<>();
 
@@ -28,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
             {"China","Beijing","Jakarta","Manila","Stockholm"},
             {"India","New Delhi","Beijing","Bangkok","Seoul"},
             {"Indonesia","Jakarta","Manila","New Delhi","Kuala Lumpur"},
-            {"Japan","Tokyo","Bangkok","Taipei","Jakarta"}
+            {"Japan","Tokyo","Bangkok","Taipei","Jakarta"},
+            {"Thailand","Bangkok","Taipei","Havana","Kingston"},
+            {"Brazil","Brasilia","Havana","Bangkok","Copenhagen"}
     };
 
     @Override
@@ -81,11 +88,49 @@ public class MainActivity extends AppCompatActivity {
 
         //Set Choices
         answerBtn1.setText(quiz.get(0));
-        answerBtn1.setText(quiz.get(1));
-        answerBtn1.setText(quiz.get(2));
-        answerBtn1.setText(quiz.get(3));
+        answerBtn2.setText(quiz.get(1));
+        answerBtn3.setText(quiz.get(2));
+        answerBtn4.setText(quiz.get(3));
 
         //Remove this quiz from quizArray
         quizArray.remove(randomNum);
+    }
+
+    public void checkAnswer(View view){
+        //Get pushed button
+        Button answerBtn=(Button)findViewById(view.getId());
+        String btnText=answerBtn.getText().toString();
+
+        String alertTitle;
+
+        if(btnText.equals(rightAnswer)){
+            //Correct
+            alertTitle="Correct!";
+        }else {
+            //Wrong
+            alertTitle="Wrong!";
+        }
+
+        //Create Dialog
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle(alertTitle);
+        builder.setMessage("Answer: "+rightAnswer);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface,int i){
+                if(quizCount==QUIZ_COUNT){
+                    //Show result
+                    Intent intent=new Intent(getApplicationContext(),ResultActivity.class);
+                    intent.putExtra("RIGHT_ANSWER_COUNT",rightAnswerCount);
+                    startActivity(intent);
+
+                }else {
+                    quizCount++;
+                    showNextQuiz();
+                }
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
     }
 }
