@@ -1,7 +1,10 @@
 package com.example.yjyou.quizapp;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private String rightAnswer;
     private int rightAnswerCount=0;
     private int quizCount=1;
+    static final private int QUIZ_COUNT=5;
 
     ArrayList<ArrayList<String>> quizArray=new ArrayList<>();
 
@@ -87,5 +91,40 @@ public class MainActivity extends AppCompatActivity {
 
         //Remove this quiz from quizArray
         quizArray.remove(randomNum);
+    }
+
+    public void checkAnswer(View view){
+        //Get pushed button
+        Button answerBtn=(Button)findViewById(view.getId());
+        String btnText=answerBtn.getText().toString();
+
+        String alertTitle;
+
+        if(btnText.equals(rightAnswer)){
+            //Correct
+            alertTitle="Correct!";
+        }else {
+            //Wrong
+            alertTitle="Wrong!";
+        }
+
+        //Create Dialog
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle(alertTitle);
+        builder.setMessage("Answer: "+rightAnswer);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface,int i){
+                if(quizCount==QUIZ_COUNT){
+                    //Show result
+
+                }else {
+                    quizCount++;
+                    showNextQuiz();
+                }
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
     }
 }
