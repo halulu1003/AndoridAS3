@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
             {"China","Beijing","Jakarta","Manila","Stockholm"},
             {"India","New Delhi","Beijing","Bangkok","Seoul"},
             {"Indonesia","Jakarta","Manila","New Delhi","Kuala Lumpur"},
-            {"Japan","Tokyo","Bangkok","Taipei","Jakarta"}
+            {"Japan","Tokyo","Bangkok","Taipei","Jakarta"},
+            {"Thailand","Bangkok","Taipei","Havana","Kingston"},
+            {"Brazil","Brasilia","Havana","Bangkok","Copenhagen"}
     };
 
     @Override
