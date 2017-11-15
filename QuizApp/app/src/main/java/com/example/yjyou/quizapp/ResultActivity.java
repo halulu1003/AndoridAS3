@@ -2,6 +2,7 @@ package com.example.yjyou.quizapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -9,5 +10,12 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        TextView resultLabel=(TextView)findViewById(R.id.resultLabel);
+        TextView totalSoreLabel=(TextView)findViewById(R.id.totalSoreLabel);
+
+        int score=getIntent().getIntExtra("RIGHR_ANSWER_COUNT",0);
+        resultLabel.setText(score+" /5");
+
     }
 }
