@@ -31,12 +31,21 @@ public class MainActivity extends AppCompatActivity {
 
     String quizData[][]={
             //{"Country","Right Answer","Choice1","Choice2","Choice3}
-            {"China","Beijing","Jakarta","Manila","Stockholm"},
+            {"China","Beijing","Jakarta","Manila","Stockholm","1"},
             {"India","New Delhi","Beijing","Bangkok","Seoul"},
             {"Indonesia","Jakarta","Manila","New Delhi","Kuala Lumpur"},
             {"Japan","Tokyo","Bangkok","Taipei","Jakarta"},
             {"Thailand","Bangkok","Taipei","Havana","Kingston"},
-            {"Brazil","Brasilia","Havana","Bangkok","Copenhagen"}
+            {"Brazil","Brasilia","Havana","Bangkok","Copenhagen"},
+            {"Canada","Ottawa","Havana","Copenhagen","Jakarta"},
+            {"Cuba","Havana","Bern","London","Mexico City"},
+            {"Mexico","Mexico City","Ottawa","Berlin","Santiago"},
+            {"United States","Washington D.C","San Jose","Buenos Aires","Ottawa"},
+            {"France","Pairs","Ottawa","Copenhagen","Tokyo"},
+            {"Germany","Berlin","Copenhagen","Pairs","Athens"},
+            {"Italy","Rome","London","Athens","Pairs"},
+            {"Spain","Madrid","Jakarta","Manila","Seoul"},
+            {"United Kingdom","London","Rome","Pairs","Singapore"}
     };
 
     @Override
