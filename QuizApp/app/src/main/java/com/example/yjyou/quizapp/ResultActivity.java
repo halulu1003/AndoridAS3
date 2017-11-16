@@ -1,9 +1,11 @@
 package com.example.yjyou.quizapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -30,5 +32,10 @@ public class ResultActivity extends AppCompatActivity {
         editor.putInt("totalScore",totalSore);
         editor.commit();
 
+    }
+
+    public void returnTop(View view){
+        Intent intent=new Intent(getApplicationContext(),StartActivity.class);
+        startActivity(intent);
     }
 }
