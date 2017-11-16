@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         if(btnText.equals(rightAnswer)){
             //Correct
             alertTitle="Correct!";
+            rightAnswerCount++;
         }else {
             //Wrong
             alertTitle="Wrong!";
